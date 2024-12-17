@@ -1,0 +1,80 @@
+.modal2 {
+  z-index: 100;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  background-color: #fff;
+  border-radius: rem(20px);
+}
+
+.modal2-wrap {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: rem(60px);
+  text-align: center;
+  h2 {
+    position: relative;
+    top: rem(-10px);
+    //font-size: rem(48px);
+    font-weight: normal;
+    div {
+      display: inline-block;
+      font-size: 0;
+      span {
+        font-size: rem(42px);
+      }
+    }
+  }
+  p.gray {
+    color: #666;
+  }
+  img {
+    position: relative;
+    top: rem(-20px);
+    width: rem(80px);
+  }
+}
+
+.modal2-contents {
+  display: flex;
+  flex-flow: column;
+  gap: rem(16px);
+  width: 100%;
+  padding: rem(30px) rem(0px);
+  input {
+    font-family: "NeoDunggeunmoPro-Regular";
+    font-size: rem(18px);
+    line-height: 1.5;
+    padding: rem(10px);
+    border: none;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: rem(8px);
+    &:focus {
+      border: 1px solid $green02;
+      outline: none;
+    }
+    &::placeholder {
+      color: #999;
+      //font-size: rem(16px);
+    }
+  }
+}
+
+.login button {
+  background-color: $green01;
+  &:hover {
+    background-color: $green02;
+  }
+  &#goToMailbox {
+    background-color: $red01;
+    &:hover {
+      background-color: $red02;
+    }
+  }
+}

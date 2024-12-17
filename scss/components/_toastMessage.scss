@@ -1,0 +1,47 @@
+.toast-message {
+  position: absolute;
+  z-index: 100;
+  bottom: -20%;
+  opacity: 0;
+  right: 5%;
+  padding: rem(5px);
+  min-width: rem(240px);
+  background: linear-gradient(
+    45deg,
+    $red01 25%,
+    $green01 0,
+    $green01 50%,
+    $red01 0,
+    $red01 75%,
+    $green01 0
+  );
+  -webkit-background-size: rem(30px) rem(30px);
+  background-size: rem(30px) rem(30px);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  border-radius: rem(16px);
+  color: $red01;
+  transition: all 0.3s;
+  &.show {
+    opacity: 1;
+    bottom: 5%;
+  }
+  &.vibration {
+    animation: vibration 0.1s infinite;
+  }
+
+  p {
+    padding: rem(20px);
+    background-color: #fff;
+    border-radius: rem(16px);
+    height: 100%;
+  }
+}
+
+@keyframes vibration {
+  from {
+    transform: rotate(1deg);
+  }
+  to {
+    transform: rotate(-1deg);
+  }
+}

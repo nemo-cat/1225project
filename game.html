@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <section class="top-section">
+      <div>
+        <h1>Your Life's</h1>
+        <div class="lifes" id="heart"></div>
+      </div>
+      <div>
+        <div class="game-timer">00:<span id="gameTimer">30</span></div>
+        <!-- <audio
+          controls
+          autoplay
+          loop
+          src="/images/magic-christmas-night-264068.mp3"
+        ></audio> -->
+      </div>
+    </section>
+    <section class="snow">
+      <div class="snow-wrap">
+        <div class="snow-item"></div>
+        <!-- 눈이내려요 -->
+      </div>
+    </section>
+    <section class="game-wrap">
+      <div class="game-content-wrap">
+        <div class="rail-wrap">
+          <div id="myCharacter" class="my-character"></div>
+          <div id="obstacle" class="obstacle"></div>
+        </div>
+        <div class="floor"></div>
+      </div>
+    </section>
+
+    <div class="modal">
+      <div class="modal-bg"></div>
+      <div class="modal-content game-over">
+        <div class="game-overlay-wrap">
+          <h2 class="modal-title">GAME OVER</h2>
+          <button class="modal-btn" id="gameReStart">Try again</button>
+        </div>
+      </div>
+
+      <div class="modal-content game-clear">
+        <h2 class="modal-title">GAME CLEAR</h2>
+        <div class="modal-text overlay-wrap">
+          <p>편지 배달에 <span class="green">성공</span>하였습니다~!</p>
+          <img src="images/clear.png" alt="" />
+        </div>
+        <button class="modal-btn" id="gameStart">>Next</button>
+      </div>
+    </div>
+
+    <script src="/script/move.js"></script>
+    <script src="/script/snow.js"></script>
+    <script src="/script/index.js"></script>
+  </body>
+</html>

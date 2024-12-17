@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <section class="snow">
+      <div class="snow-wrap">
+        <div class="snow-item"></div>
+        <!-- 눈이내려요 -->
+      </div>
+    </section>
+    <div class="post-box"></div>
+
+    <section class="modal2 mail-modal">
+      <button id="close"></button>
+      <div class="modal2-wrap mail-login">
+        <div class="modal2-header">
+          <h2 class="title">누구의 편지함을 열까요?</h2>
+        </div>
+        <div class="modal2-contents">
+          <input type="text" placeholder="닉네임을 입력해주세요." />
+          <input
+            type="password"
+            placeholder="설정한 비밀번호를 입력해주세요."
+          />
+          <button id="openBtn">편지함 열기</button>
+          <button id="goToCreate" class="text-btn">새로운 편지함 만들기</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-wrap">
+      <div class="game-content-wrap">
+        <div class="floor"></div>
+      </div>
+    </section>
+
+    <div class="modal login-check-modal">
+      <div class="modal-bg"></div>
+      <div class="modal-content modal-content">
+        <h2 class="modal-title">편지 배달하러 가기</h2>
+        <div class="modal-text">
+          <p>
+            <span>30초</span>동안 <span>장애물을</span> 피해 편지를
+            배달해주세요!
+          </p>
+          <img src="images/howToPlay.gif" alt="" />
+        </div>
+        <button class="modal-btn">Game Start!</button>
+      </div>
+    </div>
+
+    <div class="toast-message"><p></p></div>
+
+    <script src="/script/snow.js"></script>
+    <script src="/script/mailBox.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+
+
+@mixin position($x, $xvalue, $y: null, $yvalue: null) {
+  position: absolute;
+  #{$x}: $xvalue;
+  #{$y}: $yvalue;
+  @if $xvalue == 50% and $yvalue == 50% {
+    transform: translate(-50%, -50%);
+  } @else if $xvalue == 50% {
+    transform: translateX(-50%);
+  } @else if $yvalue == 50% {
+    transform: translateY(-50%);
+  }
+}
+
+@mixin flexbox($ai: center, $jc: center) {
+  display: flex;
+  align-items: $ai;
+  justify-content: $jc;
+}
+
+@mixin gridbox($col, $gap: 20) {
+  display: grid;
+  grid-template-columns: repeat($col, 1fr);
+  gap: rem($gap);
+}
+
+@mixin font($size: rem(16), $weight: 400, $lh: null) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lh;
+}

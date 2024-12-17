@@ -1,0 +1,182 @@
+.letter-top-section {
+  justify-content: flex-end;
+  .letter-audio {
+    position: relative;
+    z-index: 100;
+  }
+}
+
+.letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: rem(1000px);
+  aspect-ratio: 951/851;
+  background: url("/images/letter.png") no-repeat center;
+  background-size: contain;
+  &-content {
+    padding-top: 20%;
+    padding-left: 15%;
+    color: #333;
+  }
+
+  .seal {
+    z-index: -1;
+    transition: all 0.3s;
+    position: absolute;
+    opacity: 0;
+    bottom: 10%;
+    right: 10%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: url("/images/seal.png") no-repeat center;
+    background-size: contain;
+    &.show {
+      z-index: inherit;
+      opacity: 1;
+      width: 20%;
+    }
+  }
+
+  h2 {
+    font-size: rem(42px);
+    width: 80%;
+    span {
+      padding-right: rem(20px);
+    }
+    input {
+      width: 50%;
+    }
+  }
+
+  input {
+    font-family: "DNFBitBitv2";
+    border: none;
+    font-size: rem(36px);
+    line-height: 1.5;
+    color: #333;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .letter-body {
+    input {
+      width: 80%;
+      display: block;
+    }
+  }
+
+  .letter-btn {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: rem(12px);
+    background-color: $red01;
+    color: #fff;
+    font-size: rem(18px);
+  }
+  .letter-textarea {
+    font-family: "NeoDunggeunmoPro-Regular";
+    font-size: rem(36px);
+    line-height: 1.5;
+    color: #333;
+    width: 80%;
+    height: rem(400px);
+    border: none;
+    resize: none; /* 크기 조절 비활성화 */
+    overflow: hidden;
+    padding: rem(10px);
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  @media all and (max-width: 1280px) {
+    .letter {
+      width: rem(900px);
+      &-content {
+        padding-top: 15%;
+        padding-left: 15%;
+      }
+    }
+
+    h2,
+    input {
+      font-size: rem(38px);
+    }
+
+    textarea {
+      height: rem(350px);
+      font-size: rem(32px);
+    }
+  }
+
+  @media all and (max-width: 1024px) {
+    .letter {
+      width: rem(800px);
+    }
+    .letter-btn {
+      padding: rem(10px) rem(20px);
+      bottom: 7%;
+      font-size: rem(16px);
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    .letter {
+      width: rem(700px);
+    }
+    h2,
+    input {
+      font-size: rem(36px);
+    }
+
+    textarea {
+      font-size: rem(28px);
+      height: rem(300px);
+    }
+
+    .letter-btn {
+      bottom: 5%;
+    }
+  }
+
+  @media all and (max-width: 560px) {
+    .letter {
+      width: rem(600px);
+    }
+    h2,
+    input {
+      font-size: rem(28px);
+    }
+
+    textarea {
+      font-size: rem(22px);
+      height: rem(250px);
+    }
+
+    .letter-btn {
+      bottom: 7%;
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    .letter {
+      width: rem(500px);
+    }
+    h2 {
+      font-size: rem(22px);
+    }
+
+    input {
+      font-size: rem(18px);
+    }
+  }
+}

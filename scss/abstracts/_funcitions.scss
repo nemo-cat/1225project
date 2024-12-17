@@ -1,0 +1,7 @@
+@function size($px) {
+  @return $px / 2;
+}
+
+@function rem($size) {
+  @return calc($size / 16px * 1rem);
+}

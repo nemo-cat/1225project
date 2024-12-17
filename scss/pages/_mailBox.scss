@@ -1,0 +1,112 @@
+.mail-modal {
+  display: none;
+  &.show {
+    display: block;
+  }
+  .modal2-contents {
+    position: relative;
+  }
+
+  button {
+    background-color: $green01;
+    &:hover {
+      background-color: $green02;
+    }
+  }
+}
+#close {
+  @include position(top, rem(15px), right, rem(15px));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: rem(30px);
+  height: rem(30px);
+  background: url("/images/closeBtn.png") no-repeat center;
+  background-size: contain;
+  &:hover {
+    background-image: url("/images/closeBtn-color.png");
+  }
+}
+
+.post-box {
+  @include position(left, 50%, bottom, rem(150px));
+  z-index: 50;
+  width: rem(200px);
+  aspect-ratio: 35/43;
+  background: url("/images/mail-box.png") no-repeat center;
+  background-size: contain;
+  transition: all 0.3s;
+  &:hover {
+    cursor: pointer;
+    width: rem(220px);
+  }
+  &::after {
+    @include position(left, 0, top, -40%);
+    content: "";
+    width: rem(100px);
+    aspect-ratio: 26/22;
+    background: url("/images/new-messgae.png") no-repeat center;
+    background-size: contain;
+    animation: ani1 1s infinite alternate; // 애니메이션 적용
+  }
+}
+
+.text-btn {
+  @include position(bottom, 0, right, 0);
+  text-align: right;
+  padding: rem(5px);
+  font-family: "NeoDunggeunmoPro-Regular";
+  background-color: transparent !important;
+  color: #999 !important;
+  &:hover {
+    text-decoration: underline;
+    color: #333 !important;
+  }
+}
+
+.mail-box {
+  .modal2-contents {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .mail-list {
+    height: rem(250px);
+    overflow-y: scroll;
+    li {
+      display: flex;
+      justify-content: space-between;
+      font-size: rem(18px);
+      align-items: center;
+      padding: rem(10px) rem(20px);
+      height: rem(50px);
+      &:hover {
+        background-color: #f3f3f3;
+        cursor: pointer;
+      }
+      .new {
+        color: $red01;
+        animation: ani2 1s infinite alternate; // 애니메이션 적용
+      }
+    }
+  }
+}
+
+@keyframes ani1 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ani2 {
+  0% {
+    color: $green01;
+  }
+  100% {
+    color: rgb(229, 209, 31);
+  }
+}

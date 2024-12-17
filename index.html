@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <section class="top-section letter-top-section">
+      <!-- <audio
+        class="letter-audio"
+        controls
+        autoplay
+        loop
+        src="/images/magic-christmas-night-264068.mp3"
+      ></audio> -->
+    </section>
+    <section class="snow">
+      <div class="snow-wrap">
+        <div class="snow-item"></div>
+        <!-- 눈이내려요 -->
+      </div>
+    </section>
+
+    <section class="login modal2">
+      <div class="modal2-wrap">
+        <div class="modal2-header">
+          <img src="images/clear.png" alt="" />
+          <h2 class="title">
+            루돌프의
+            <div>
+              <span class="red">편</span>
+              <span class="green">지</span>
+              <span class="red">배</span>
+              <span class="green">달</span>
+            </div>
+          </h2>
+          <p class="gray neo">장애물을 피해 친구에게 편지를 전해보세요!</p>
+        </div>
+        <div class="modal2-contents">
+          <input
+            id="recipient"
+            type="text"
+            placeholder="받으실 분의 닉네임을 입력해주세요"
+          />
+          <input
+            id="sender"
+            type="text"
+            placeholder="보내는사람의 닉네임을 입력해주세요"
+          />
+          <button id="login">편지 보내러 가기</button>
+          <span>or</span>
+          <button id="goToMailbox">내 편지함 만들기 / 보러가기</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-wrap">
+      <div class="game-content-wrap">
+        <div class="floor"></div>
+      </div>
+    </section>
+
+    <div class="toast-message"><p></p></div>
+
+    <script src="/script/toast.js"></script>
+    <script src="/script/index.js"></script>
+    <script src="/script/snow.js"></script>
+    <script src="/script/login.js"></script>
+  </body>
+</html>

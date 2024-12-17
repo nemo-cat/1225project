@@ -1,0 +1,56 @@
+body {
+  background-color: $bg-color;
+  color: #fff;
+  min-width: 375px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+button {
+  padding: rem(15px) rem(30px);
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: rem(8px);
+  font-family: "DNFBitBitv2";
+  &:hover {
+    background-color: $red01;
+  }
+}
+
+.red {
+  color: $red01;
+}
+
+.green {
+  color: $green01;
+}
+
+.title {
+  position: relative;
+  top: rem(-10px);
+  font-size: rem(42px);
+  font-weight: normal;
+  div {
+    display: inline-block;
+    font-size: 0;
+    span {
+      font-size: rem(48px);
+    }
+  }
+}
+
+@media all and (max-width: 1280px) {
+  html {
+    font-size: 14px;
+    //background-color: rgb(58, 11, 102);
+  }
+}
+
+@media all and (max-width: 768px) {
+  html {
+    font-size: 12px;
+    // background-color: rgb(65, 7, 16);
+  }
+}

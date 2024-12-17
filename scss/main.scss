@@ -1,0 +1,17 @@
+@import "abstracts/funcitions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/reset";
+@import "base/typography";
+@import "base/base";
+@import "base/animations";
+
+@import "components/snow";
+@import "components/gameOver";
+@import "components/toastMessage";
+
+@import "pages/index.scss";
+@import "pages/letter";
+@import "pages/login";
+@import "pages/mailBox";
