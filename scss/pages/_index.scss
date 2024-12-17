@@ -110,6 +110,7 @@
 //여기 무한 롤링배너처럼 계속 롤링되게 해야할까?
 .floor {
   position: relative;
+  bottom: rem(-10px);
   width: 100%;
   min-height: rem(200px);
   background: url("/images/floor.png") no-repeat;

@@ -20,7 +20,6 @@
   h2 {
     position: relative;
     top: rem(-10px);
-    //font-size: rem(48px);
     font-weight: normal;
     div {
       display: inline-block;
@@ -61,20 +60,24 @@
     }
     &::placeholder {
       color: #999;
-      //font-size: rem(16px);
     }
   }
 }
 
-.login button {
-  background-color: $green01;
-  &:hover {
-    background-color: $green02;
-  }
-  &#goToMailbox {
-    background-color: $red01;
+.login .btn-wrap {
+  display: flex;
+  flex-flow: column;
+  gap: rem(10px);
+  button {
+    background-color: $green01;
     &:hover {
-      background-color: $red02;
+      background-color: $green02;
+    }
+    &#goToMailBox {
+      background-color: $red01;
+      &:hover {
+        background-color: $red02;
+      }
     }
   }
 }

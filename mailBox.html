@@ -19,11 +19,18 @@
       <button id="close"></button>
       <div class="modal2-wrap mail-login">
         <div class="modal2-header">
-          <h2 class="title">누구의 편지함을 열까요?</h2>
+          <h2 class="title">
+            누구의 <span class="red">편지함</span>을 열까요?
+          </h2>
         </div>
         <div class="modal2-contents">
-          <input type="text" placeholder="닉네임을 입력해주세요." />
           <input
+            id="loginId"
+            type="text"
+            placeholder="닉네임을 입력해주세요."
+          />
+          <input
+            id="loginPw"
             type="password"
             placeholder="설정한 비밀번호를 입력해주세요."
           />
@@ -39,23 +46,10 @@
       </div>
     </section>
 
-    <div class="modal login-check-modal">
-      <div class="modal-bg"></div>
-      <div class="modal-content modal-content">
-        <h2 class="modal-title">편지 배달하러 가기</h2>
-        <div class="modal-text">
-          <p>
-            <span>30초</span>동안 <span>장애물을</span> 피해 편지를
-            배달해주세요!
-          </p>
-          <img src="images/howToPlay.gif" alt="" />
-        </div>
-        <button class="modal-btn">Game Start!</button>
-      </div>
-    </div>
-
     <div class="toast-message"><p></p></div>
 
+    <script src="/script/toast.js"></script>
+    <script src="/script/index.js"></script>
     <script src="/script/snow.js"></script>
     <script src="/script/mailBox.js"></script>
   </body>
