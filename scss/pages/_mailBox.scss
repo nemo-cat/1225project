@@ -1,9 +1,22 @@
+.top-section {
+  .goBack {
+    position: relative;
+    z-index: 100;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: rem(8px);
+    }
+  }
+}
+
 .mail-modal {
   display: none;
   &.show {
     display: block;
   }
   .modal2-contents {
+    min-width: rem(450px);
     position: relative;
   }
 
@@ -14,6 +27,13 @@
     }
   }
 }
+
+.mailBox-letter {
+  .letter {
+    z-index: 1000;
+  }
+}
+
 #close {
   @include position(top, rem(15px), right, rem(15px));
   display: flex;
