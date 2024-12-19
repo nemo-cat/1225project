@@ -120,31 +120,6 @@ function createNewMailBox() {
   showToast(`${newMailBox.name}님의 메일함 생성이 완료되었습니다`);
 }
 
-// 로컬스토리지에 저장시키자!
-function saveLocalStorage(currentMailBox) {
-  console.log("saveLocalStorage 함수실행");
-  window.localStorage.setItem("mailBox", JSON.stringify(currentMailBox));
-  console.log("saveLocalStorage 저장완료");
-}
-
-//로컬스토리지에 있는 값 가져오기
-function loadLocalStorage() {
-  let getMailBox = window.localStorage.getItem("mailBox");
-  let parsedMailBox = getMailBox
-    ? JSON.parse(getMailBox)
-    : [JSON.parse(giftFromSori)];
-  currentMailBox = parsedMailBox;
-  arrayToMap();
-}
-
-//배멸에있는걸 다시 map에 담는 함수
-function arrayToMap() {
-  for (let i = 0; i < currentMailBox.length; i++) {
-    const mailBox = currentMailBox[i];
-    currentMailMap[mailBox.name] = mailBox;
-  }
-}
-
 /* 중복 닉네임 체크 */
 function checkDuplicateNickname() {
   //인풋에 입력된 닉네임 값을 가져와서, 현재 등록된 메일함의 이름과 같은게 있는지 확인해야함
