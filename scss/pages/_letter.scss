@@ -15,7 +15,7 @@
   width: 70%;
   max-width: rem(900px);
   aspect-ratio: 9/7;
-  background: url("/images/letter.png") no-repeat center;
+  background: url("./images/letter.png") no-repeat center;
   background-size: contain;
   &-content {
     padding-top: 12%;
@@ -32,7 +32,7 @@
     right: 10%;
     width: 100%;
     aspect-ratio: 1/1;
-    background: url("/images/seal.png") no-repeat center;
+    background: url("./images/seal.png") no-repeat center;
     background-size: contain;
     &.show {
       z-index: inherit;

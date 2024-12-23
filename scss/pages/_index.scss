@@ -14,10 +14,10 @@
     .life-item {
       width: rem(40px);
       aspect-ratio: 1/1;
-      background: url("/images/heart-full.svg") no-repeat center;
+      background: url("./images/heart-full.svg") no-repeat center;
       background-size: contain;
       &.loss {
-        background-image: url("/images/heart-loss.svg");
+        background-image: url("./images/heart-loss.svg");
       }
     }
   }
@@ -52,7 +52,7 @@
     content: "";
     width: 100%;
     height: 100%;
-    background-image: url("/images/bg.png");
+    background-image: url("./images/bg.png");
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: contain;
@@ -65,21 +65,21 @@
     //height: 560px;
     aspect-ratio: 69/112;
     transition: all 0.2s ease-in-out;
-    background-image: url("/images/myCharacter.png");
+    background-image: url("./images/myCharacter.png");
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: contain;
     &.hurt {
-      background-image: url("/images/myCharacter-hurt.png");
+      background-image: url("./images/myCharacter-hurt.png");
     }
     &.move1 {
-      background-image: url("/images/myCharacter-move1.png");
+      background-image: url("./images/myCharacter-move1.png");
     }
     &.move2 {
-      background-image: url("/images/myCharacter-move2.png");
+      background-image: url("./images/myCharacter-move2.png");
     }
     &.jump {
-      background-image: url("/images/myCharacter-jump.png");
+      background-image: url("./images/myCharacter-jump.png");
     }
   }
 
@@ -92,7 +92,7 @@
     bottom: 0;
     right: 0;
     animation: moveObstacle 3s linear infinite;
-    background: url("/images/obstacle.png") no-repeat center bottom;
+    background: url("./images/obstacle.png") no-repeat center bottom;
     background-size: contain;
   }
 }
@@ -112,6 +112,6 @@
   bottom: rem(-10px);
   width: 100%;
   min-height: rem(200px);
-  background: url("/images/floor.png") no-repeat;
+  background: url("./images/floor.png") no-repeat;
   background-size: cover;
 }
