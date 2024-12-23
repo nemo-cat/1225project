@@ -79,5 +79,5 @@ function addMailList(recipient, sender) {
 }
 
 document.getElementById("goToMailBox").addEventListener("click", function () {
-  window.location.href = "/mailBox.html";
+  window.location.href = "./mailBox.html";
 });

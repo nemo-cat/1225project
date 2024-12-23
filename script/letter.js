@@ -71,7 +71,7 @@ sendBtn.addEventListener("click", function () {
 });
 
 document.getElementById("gameStart").addEventListener("click", function () {
-  window.location.href = "/game.html";
+  window.location.href = "./game.html";
 });
 
 function saveMessage() {
