@@ -37,7 +37,7 @@ function checkInputBox() {
       foundRecipient = true;
       saveLocalStorage(currentMailBox); //로컬스토리지에 저장
       console.log("이동 준비 중");
-      window.location.href = `/letter.html?recipient=${encodeURIComponent(
+      window.location.href = `./letter.html?recipient=${encodeURIComponent(
         inputNickName
       )}`;
       console.log("이 코드는 실행되지 않아야 함");
