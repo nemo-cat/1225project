@@ -22,9 +22,9 @@ loginModal.addEventListener("click", function (e) {
 2. 실제 존재하는 데이터면 -> 보내는사람 닉네임 들어갔는지 확인
 2-1. 보내는사람 닉네임 없으면 toast보여주기
 */
-
+let inputNickName;
 function checkInputBox() {
-  const inputNickName = recipient.value;
+  inputNickName = recipient.value;
   const inputSender = sender.value;
   let foundRecipient = false;
   for (let i = 0; i < currentMailBox.length; i++) {
@@ -32,12 +32,16 @@ function checkInputBox() {
       `${i}번째 || 가져온값 : ${currentMailBox[i].name} || 실제입력값 : ${inputNickName}`
     );
     if (currentMailBox[i].name == inputNickName && inputSender) {
-      메일추가(inputNickName, inputSender);
-      //window.location.href = "/letter.html";
+      addMailList(inputNickName, inputSender);
       //해당닉네임의 유저에게 mailList가 하나 더 추가되어야 함.
       foundRecipient = true;
+      saveLocalStorage(currentMailBox); //로컬스토리지에 저장
+      console.log("이동 준비 중");
+      window.location.href = `/letter.html?recipient=${encodeURIComponent(
+        inputNickName
+      )}`;
+      console.log("이 코드는 실행되지 않아야 함");
       break;
-      console.log("ㅇ?");
     } else if (currentMailBox[i].name == inputNickName && !inputSender) {
       showToast("보내는 사람의 닉네임을 입력해주세요");
       foundRecipient = true;
@@ -59,7 +63,7 @@ function checkInputBox() {
 
 */
 
-function 메일추가(recipient, sender) {
+function addMailList(recipient, sender) {
   let addNewMail = {
     sender: sender,
     message: null,
@@ -73,3 +77,7 @@ function 메일추가(recipient, sender) {
     }
   }
 }
+
+document.getElementById("goToMailBox").addEventListener("click", function () {
+  window.location.href = "/mailBox.html";
+});

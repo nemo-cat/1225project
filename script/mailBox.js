@@ -2,7 +2,7 @@ const postBox = document.querySelector(".post-box");
 const mailModal = document.querySelector(".modal2");
 const goToCreate = document.getElementById("goToCreate");
 const goBack = document.querySelector(".goBack");
-let getMailList = null;
+let userMailList = null;
 let mailLogin = `
   <button id="close"></button>
   <div class="modal2-wrap mail-login">
@@ -84,12 +84,6 @@ mailModal.addEventListener("click", function (e) {
 let currentMailBox = [];
 let currentMailMap = {};
 
-let giftFromSori = `{
-  "name": "주인장",
-  "passWord": "980330",
-  "mailList": [{ "sender": "주인장", "message": "행운의편지", "date": "2024-12-18", "read": 0 }]
-}`;
-
 loadLocalStorage();
 
 //편지함 만들기를 하면 객체 하나를 만들자.
@@ -100,13 +94,26 @@ function createNewMailBox() {
     console.log("닉네임 중복 체크 완료!");
   }
 
+  if (!checkPassWord()) {
+    console.log("비번첵");
+    return;
+  } else {
+    console.log("비밀번호 체크 완료!");
+  }
+
   console.log("새로운 객체 생성 전");
   let newMailBox = {
     //새로운 객체 생성
     name: document.getElementById("createNewId").value,
     passWord: document.getElementById("checkNewPw").value,
     mailList: [
-      { sender: `민국`, message: "바보", date: "2024-12-18", read: 0 },
+      {
+        sender: "주인장",
+        message:
+          "이 편지는 영국에서 최초로 시작되어 일년에 한바퀴를 돌면서 받는 사람에게 행운을 주었고 지금은 당신에게로 옮겨진 이 편지는 4일 안에 당신 곁을 떠나야 합니다. 이 편지를 포함해서 7통을 행운이 필요한 사람에게 보내 주셔야 합니다.",
+        date: "2024-12-18",
+        read: 0,
+      },
     ],
   };
   console.log("새로운 객체 생성 완료 : " + newMailBox);
@@ -114,7 +121,9 @@ function createNewMailBox() {
   currentMailBox.push(newMailBox);
   console.log("currentMailBox에 push후" + currentMailBox);
   console.log("saveLocalStorage 함수호출");
+  // 저장 후 currentMailMap 갱신
   saveLocalStorage(currentMailBox);
+  loadLocalStorage(); // currentMailMap 갱신
 
   mailModal.innerHTML = mailLogin;
   showToast(`${newMailBox.name}님의 메일함 생성이 완료되었습니다`);
@@ -126,6 +135,11 @@ function checkDuplicateNickname() {
   //현재 등록된 메일함은 여러개일수 있음.
   let inputNickname = document.getElementById("createNewId").value;
   //현재 등록된 메일함 => currentMailBox 에 그럼... 로컬스토리지에 저장된 값들을 불러와야함. 불러왔다고 치고.
+  if (inputNickname == "") {
+    showToast("사용하실 닉네임을 입력해주세요.");
+    console.log("함수종료");
+    return false;
+  }
   for (let i = 0; i < currentMailBox.length; i++) {
     if (currentMailBox[i].name == inputNickname) {
       showToast("이미 사용중인 닉네임입니다.");
@@ -136,6 +150,30 @@ function checkDuplicateNickname() {
   console.log("진짜종료?");
   return true;
 }
+
+function checkPassWord() {
+  let inputNewPw = document.getElementById("createNewPw").value;
+  let inputCheckPw = document.getElementById("checkNewPw").value;
+  console.log(inputNewPw);
+  console.log(inputCheckPw);
+  if (inputNewPw == "") {
+    showToast("비밀번호를 입력해 주세요.");
+    console.log("비번");
+    return false;
+  } else if (inputCheckPw == "") {
+    showToast("비밀번호를 한번 더 입력해 주세요.");
+    console.log("비번");
+    return false;
+  }
+  if (inputNewPw != inputCheckPw) {
+    showToast("비밀번호를 다시 확인해주세요.");
+    console.log("비번");
+    return false;
+  }
+
+  return true;
+}
+
 let myMailList = null;
 /* 편지함 열기 */
 let loginNickName;
@@ -144,6 +182,22 @@ function findNickName() {
   loginNickName = document.getElementById("loginId").value;
   let loginPassWord = document.getElementById("loginPw").value;
 
+  if (currentMailMap[loginNickName]) {
+    //map에 로그인 시도하려는 닉네임이 있으면
+    if (currentMailMap[loginNickName].passWord == loginPassWord) {
+      showToast("로그인 성공!");
+      mailModal.innerHTML = mailBox;
+      showMailList();
+      myMailList = document.querySelector(".mail-list"); // mail-list 재할당
+      attachMailListEvent(userMailList); // 이벤트 리스너 재등록
+    } else {
+      showToast("비밀번호가 틀렸습니다"); // 비밀번호가 틀린 경우
+    }
+  } else {
+    showToast("존재하지 않는 닉네임입니다.");
+  }
+  /*
+  생각해보니까 반복문 돌릴이유가없다. map에서 찾으면된다.
   for (let i = 0; i < currentMailBox.length; i++) {
     if (currentMailBox[i].name == loginNickName) {
       showToast("아이디 일치함");
@@ -152,7 +206,7 @@ function findNickName() {
         mailModal.innerHTML = mailBox;
         showMailList();
         myMailList = document.querySelector(".mail-list"); // mail-list 재할당
-        attachMailListEvent(getMailList); // 이벤트 리스너 재등록
+        attachMailListEvent(userMailList); // 이벤트 리스너 재등록
         return; // 로그인 성공 후 더 이상 체크하지 않음
       } else {
         showToast("비밀번호가 틀렸습니다"); // 비밀번호가 틀린 경우
@@ -160,7 +214,7 @@ function findNickName() {
       }
     }
   }
-  showToast("존재하지 않는 닉네임입니다.");
+  showToast("존재하지 않는 닉네임입니다.");*/
 }
 
 function showMailList() {
@@ -168,36 +222,41 @@ function showMailList() {
   const mailItemList = document.querySelector(".mail-list");
   mailBoxTitle.innerHTML = `${loginNickName}님의`;
 
-  getMailList = currentMailMap[loginNickName].mailList;
-  console.log(getMailList);
+  //메일리스트 초기화
+  mailItemList.innerHTML = "";
 
-  let mailSender;
-  let mailMessage;
-  let mailMesssageRead;
-  let notePaper = null;
+  userMailList = currentMailMap[loginNickName].mailList;
+  console.log(userMailList);
 
-  for (let i = 0; i < getMailList.length; i++) {
-    mailSender = getMailList[i].sender;
-    mailMessage = getMailList[i].message;
-    mailMessageRead = getMailList[i].read;
+  let mailSender = null;
+  let mailMessage = null;
+  let isMailRead = null;
 
-    if (!mailMessageRead) {
-      mailItemList.innerHTML = `<li>${mailSender}<span class="new">New</span></li>`;
+  for (let i = 0; i < userMailList.length; i++) {
+    mailSender = userMailList[i].sender;
+    mailMessage = userMailList[i].message;
+    isMailRead = userMailList[i].read;
+    console.log(
+      `mailSender: ${mailSender}, mailMessage:${mailMessage}, isMailRead: ${isMailRead}`
+    );
+
+    if (!isMailRead) {
+      mailItemList.innerHTML += `<li>${mailSender}<span class="new">New</span></li>`;
     } else {
-      mailItemList.innerHTML = `<li>${mailSender}</li>`;
+      mailItemList.innerHTML += `<li>${mailSender}</li>`;
     }
   }
 }
 
 //리스트를 클릭하면 이제..보여줘야지..... 이벤트 버블링을 이용해보자
-function attachMailListEvent(getMailList) {
+function attachMailListEvent(userMailList) {
   if (myMailList) {
     myMailList.addEventListener("click", function (e) {
       let clickedItem = e.target;
       const index = Array.from(this.children).indexOf(clickedItem);
-      getMailList[index].read = 1;
+      userMailList[index].read = 1;
       // notePaper HTML 내용
-      notePaper = `<div class="mailBox-letter letter-section">
+      let notePaper = `<div class="mailBox-letter letter-section">
       <div class="letter">
         <div class="letter-content">
           <h2>
@@ -205,11 +264,11 @@ function attachMailListEvent(getMailList) {
           </h2>
           <div class="letter-body">
             <p class="letter-textarea letter-text">
-            ${getMailList[index].message}
+            ${userMailList[index].message}
             </p>
           </div>
           <h2>
-            <span>From.</span><span>${getMailList[index].sender}</span>
+            <span>From.</span><span>${userMailList[index].sender}</span>
           </h2>
           <span class="seal"></span>
         </div>
@@ -224,7 +283,7 @@ function attachMailListEvent(getMailList) {
         const letterSection = document.querySelector(".letter-section");
         if (letterSection) {
           letterSection.remove(); // notePaper 삭제
-          showMailList();
+          showMailList(); //메일리스트를 초기화 안시켜서 쌓이는거였음
         }
       });
     });

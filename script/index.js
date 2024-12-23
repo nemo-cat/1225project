@@ -66,6 +66,12 @@ window.showToast = function showToast(message) {
   }, 600);
 };
 
+let giftFromSori = `{
+  "name": "주인장",
+  "passWord": "980330",
+  "mailList": [{ "sender": "주인장", "message": "행운의편지", "date": "2024-12-18", "read": 0 }]
+}`;
+
 //로컬스토리지에 있는 값 가져오기 전역
 window.loadLocalStorage = function loadLocalStorage() {
   let getMailBox = window.localStorage.getItem("mailBox");
