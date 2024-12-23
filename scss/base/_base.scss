@@ -24,6 +24,11 @@ a {
   color: inherit;
 }
 
+audio {
+  position: relative;
+  z-index: 6000 !important;
+}
+
 .red {
   color: $red01;
 }
