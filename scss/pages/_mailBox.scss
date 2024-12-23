@@ -42,7 +42,7 @@
   padding: 0;
   width: rem(30px);
   height: rem(30px);
-  background: url("/1225project/images/closeBtn.png") no-repeat center;
+  background: url("./images/closeBtn.png") no-repeat center;
   background-size: contain;
   &:hover {
     background-image: url("./images/closeBtn-color.png");
@@ -54,7 +54,7 @@
   z-index: 50;
   width: rem(200px);
   aspect-ratio: 35/43;
-  background: url("/1225project/images/mail-box.png") no-repeat center;
+  background: url("./images/mail-box.png") no-repeat center;
   background-size: contain;
   transition: all 0.3s;
   &:hover {
@@ -66,7 +66,7 @@
     content: "";
     width: rem(100px);
     aspect-ratio: 26/22;
-    background: url("/1225project/images/new-messgae.png") no-repeat center;
+    background: url("./images/new-messgae.png") no-repeat center;
     background-size: contain;
     animation: ani1 1s infinite alternate; // 애니메이션 적용
   }
