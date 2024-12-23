@@ -14,7 +14,7 @@
     .life-item {
       width: rem(40px);
       aspect-ratio: 1/1;
-      background: url("../images/heart-full.svg") no-repeat center;
+      background: url("/1225project/images/heart-full.svg") no-repeat center;
       background-size: contain;
       &.loss {
         background-image: url("./images/heart-loss.svg");
@@ -92,7 +92,7 @@
     bottom: 0;
     right: 0;
     animation: moveObstacle 3s linear infinite;
-    background: url("../images/obstacle.png") no-repeat center bottom;
+    background: url("/1225project/images/obstacle.png") no-repeat center bottom;
     background-size: contain;
   }
 }
@@ -112,6 +112,6 @@
   bottom: rem(-10px);
   width: 100%;
   min-height: rem(200px);
-  background: url("../images/floor.png") no-repeat;
+  background: url("/1225project/images/floor.png") no-repeat;
   background-size: cover;
 }
